@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://dt1gfice52mdr"]
+
+[ext_resource type="Texture2D" uid="uid://27ul3h7i8pdo" path="res://Art/FreePack.png" id="1_rnhp6"]
+[ext_resource type="PackedScene" uid="uid://1oa6inlp7d73" path="res://Characters/player.tscn" id="2_3yp0p"]
+[ext_resource type="PackedScene" uid="uid://bdjp7lnomy0a2" path="res://Characters/ia.tscn" id="3_5jaj0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g2b4"]
+atlas = ExtResource("1_rnhp6")
+region = Rect2(1, 0, 60, 131.365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs3ar"]
+atlas = ExtResource("1_rnhp6")
+region = Rect2(60, 0, 60, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_476sh"]
+atlas = ExtResource("1_rnhp6")
+region = Rect2(125, 0, 100, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t2qt"]
+size = Vector2(666, 57)
+
+[node name="Node2D" type="Node2D"]
+texture_repeat = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="WorldRenderer" type="Node2D" parent="."]
+position = Vector2(172.21, -225.495)
+
+[node name="1" type="Sprite2D" parent="WorldRenderer"]
+position = Vector2(-290.21, 303.495)
+texture = SubResource("AtlasTexture_5g2b4")
+
+[node name="7" type="Sprite2D" parent="WorldRenderer"]
+position = Vector2(-396.21, 316.495)
+texture = SubResource("AtlasTexture_5g2b4")
+
+[node name="4" type="Sprite2D" parent="WorldRenderer"]
+position = Vector2(-461.21, 305.495)
+texture = SubResource("AtlasTexture_5g2b4")
+
+[node name="2" type="Sprite2D" parent="WorldRenderer"]
+position = Vector2(20.79, 292.495)
+texture = SubResource("AtlasTexture_gs3ar")
+
+[node name="8" type="Sprite2D" parent="WorldRenderer"]
+position = Vector2(63.79, 301.495)
+texture = SubResource("AtlasTexture_gs3ar")
+
+[node name="9" type="Sprite2D" parent="WorldRenderer"]
+position = Vector2(112.79, 297.495)
+texture = SubResource("AtlasTexture_gs3ar")
+
+[node name="6" type="Sprite2D" parent="WorldRenderer"]
+position = Vector2(-147.21, 307.495)
+texture = SubResource("AtlasTexture_gs3ar")
+
+[node name="3" type="Sprite2D" parent="WorldRenderer"]
+position = Vector2(-320.21, 303.495)
+texture = SubResource("AtlasTexture_476sh")
+
+[node name="5" type="Sprite2D" parent="WorldRenderer"]
+position = Vector2(-259.21, 301.495)
+texture = SubResource("AtlasTexture_476sh")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(6, 156.5)
+shape = SubResource("RectangleShape2D_8t2qt")
+
+[node name="Ground" type="ColorRect" parent="Floor/CollisionShape2D"]
+offset_left = -333.0
+offset_top = -28.0
+offset_right = 333.0
+offset_bottom = 29.0
+color = Color(0.482353, 0.482353, 0.239216, 1)
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("2_3yp0p")]
+position = Vector2(-145, 121)
+
+[node name="IA_Character" parent="." instance=ExtResource("3_5jaj0")]
+position = Vector2(127, 121)
